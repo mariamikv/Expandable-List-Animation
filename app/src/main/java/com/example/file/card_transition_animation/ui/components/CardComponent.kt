@@ -22,7 +22,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import coil3.request.crossfade
@@ -77,10 +79,14 @@ fun CardComponent(
                 ) {
                     Text(
                         text = data.title,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 18.sp,
                     )
 
                     Text(
                         text = data.description,
+                        fontSize = 16.sp,
+                        color = Color(0xff8f9092),
                     )
                 }
             }
@@ -90,23 +96,26 @@ fun CardComponent(
             ) {
                 Text(
                     text = data.amount,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 18.sp,
                 )
 
                 Text(
                     text = data.info,
+                    fontSize = 16.sp,
+                    color = Color(0xff8f9092),
                 )
             }
         }
 
         AnimatedVisibility(
-            visible = visibleBlurEffect
+            visible = visibleBlurEffect,
         ) {
             Box(
                 modifier = Modifier.fillMaxWidth()
                     .height(80.dp)
-                   // .zIndex(-1f)
                     .clip(RoundedCornerShape(16.dp))
-                    .background(Color.White.copy(alpha = 0.7f))
+                    .background(Color.White.copy(alpha = 0.7f)),
             )
         }
     }
